@@ -1,0 +1,46 @@
+
+
+import java.util.*;
+
+public class BinaryTree {
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    Map<Integer, Integer> inorderMap;
+    int postIndex;
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        inorderMap = new HashMap<>();
+        postIndex = postorder.length - 1;
+
+       
+        for (int i = 0; i < inorder.length; i++) {
+            inorderMap.put(inorder[i], i);
+        }
+
+        return helper(postorder, 0, inorder.length - 1);
+    }
+
+    private TreeNode helper(int[] postorder, int left, int right) {
+        if (left > right) return null;
+
+        int rootValue = postorder[postIndex--];
+        TreeNode root = new TreeNode(rootValue);
+
+        int inorderIndex = inorderMap.get(rootValue);
+
+        
+        root.right = helper(postorder, inorderIndex + 1, right);
+        root.left = helper(postorder, left, inorderIndex - 1);
+
+        return root;
+    }
+}
