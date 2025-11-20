@@ -33,7 +33,7 @@ public class TrappingWater {
     }
 
     public static void main(String[] args) {
-        TrappingRainWater obj = new TrappingRainWater();
+        TrappingWater obj = new TrappingWater();
         int[] arr = {4, 2, 0, 3, 2, 5};
         System.out.println("Total Trapped Water = " + obj.trap(arr));
     }
