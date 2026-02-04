@@ -15,12 +15,12 @@ class Solution {
         long take = NEG_INF;
         long skip = NEG_INF;
 
-        // Skip (only before sequence starts)
+        
         if (trend == 0) {
             skip = solve(i + 1, 0, nums);
         }
 
-        // If trionic pattern already completed, we can end here
+        
         if (trend == 3) {
             take = nums[i];
         }
@@ -58,7 +58,7 @@ class Solution {
         n = nums.length;
         memo = new long[n][4];
 
-        // Initialize memo with "uncomputed"
+        
         for (int i = 0; i < n; i++) {
             Arrays.fill(memo[i], Long.MIN_VALUE);
         }
