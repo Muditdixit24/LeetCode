@@ -6,9 +6,9 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             sum+=nums[i];
             int rem=sum%k;
-            if(rem<0)rem+=k;
+            
             if(map.containsKey(rem)){
-                if(i-map.get(rem)>=2){
+                if(i-map.get(rem)>1){
                 return true;
                 }
             }
